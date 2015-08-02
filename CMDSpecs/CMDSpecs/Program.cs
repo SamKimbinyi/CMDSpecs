@@ -11,30 +11,30 @@ namespace CMDSpecs
 
             if (args.Length == 0)
             {
-                ManagementObjectSearcher mosProcessor = new ManagementObjectSearcher("SELECT * FROM Win32_Processor");
+                ManagementObjectSearcher Processor = new ManagementObjectSearcher("SELECT * FROM Win32_Processor");
 
 
                 //  Print CPU Data
 
                 Console.WriteLine(" \n >>>>CPU<<<< \n");
-                foreach (ManagementObject moProcessor in mosProcessor.Get())
+                foreach (ManagementObject processor in Processor.Get())
                 {
 
 
                     // Manufacturer
-                    if (moProcessor["manufacturer"] != null)
-                        Console.WriteLine("Manufacturer: " + moProcessor["manufacturer"].ToString());
+                    if (processor["manufacturer"] != null)
+                        Console.WriteLine("Manufacturer: " + processor["manufacturer"].ToString());
                     //Name
-                    if (moProcessor["name"] != null)
-                        Console.WriteLine("Name: " + moProcessor["name"].ToString());
+                    if (processor["name"] != null)
+                        Console.WriteLine("Name: " + processor["name"].ToString());
 
                     //Data Width
-                    if (moProcessor["datawidth"] != null)
-                        Console.WriteLine("Data Width: " + moProcessor["datawidth"].ToString() + "bit");
+                    if (processor["datawidth"] != null)
+                        Console.WriteLine("Data Width: " + processor["datawidth"].ToString() + "bit");
 
                     //Clock Speed
-                    if (moProcessor["maxclockspeed"] != null)
-                        Console.WriteLine("Clock Speed: " + moProcessor["maxclockspeed"].ToString() + " Mhz");
+                    if (processor["maxclockspeed"] != null)
+                        Console.WriteLine("Clock Speed: " + processor["maxclockspeed"].ToString() + " Mhz");
 
 
 
