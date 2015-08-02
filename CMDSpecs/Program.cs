@@ -9,7 +9,6 @@ namespace CMDSpecs
     {
 
        
-        List<Action> methods = new List<Action>();
         public static String command;
         static void Main(string[] args)
         {
