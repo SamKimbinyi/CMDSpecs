@@ -11,13 +11,13 @@ namespace CMDSpecs
 
             if (args.Length == 0)
             {
-                ManagementObjectSearcher Processor = new ManagementObjectSearcher("SELECT * FROM Win32_Processor");
+                ManagementObjectSearcher Searcher = new ManagementObjectSearcher("SELECT * FROM Win32_Processor");
 
 
                 //  Print CPU Data
 
                 Console.WriteLine(" \n >>>>CPU<<<< \n");
-                foreach (ManagementObject processor in Processor.Get())
+                foreach (ManagementObject processor in Searcher.Get())
                 {
 
 
@@ -40,10 +40,25 @@ namespace CMDSpecs
 
 
                 }
-
+                //Get RAM
                 Console.WriteLine(" \n >>>>RAM<<<< \n");
                 Console.WriteLine("Capacity: " + (long)new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / bytesToGig + "GB");
 
+
+
+                //Get GPU 
+
+                Console.WriteLine(" \n >>>>GPU<<<< \n");
+
+                foreach (ManagementObject mo in Searcher.Get()) {
+                    foreach (PropertyData gpu in mo.Properties) {
+                        if (gpu.Name == "Description") {
+                            Console.WriteLine("Graphics Processing Unit: " + gpu.Value.ToString());
+                        }
+                    }
+
+
+                }
             }
 
 
