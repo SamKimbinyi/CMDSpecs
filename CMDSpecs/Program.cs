@@ -30,7 +30,7 @@ namespace CMDSpecs
 
                     //Data Width
                     if (processor["datawidth"] != null)
-                        Console.WriteLine("Data Width: " + processor["datawidth"].ToString() + "bit");
+                        Console.WriteLine("Architecture: " + processor["datawidth"].ToString() + "bit");
 
                     //Clock Speed
                     if (processor["maxclockspeed"] != null)
